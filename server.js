@@ -32,14 +32,13 @@ function weatherHandler (req,res) {
 };
 function getWeather(city){
     let data =require('./data/darksky.json');
-    let stuf=data.daily.data.map((day) => {
+    return data.daily.data.map((day) => {
 return new Weather(day);
     })
-    console.log(stuf)
 }
 function Weather(day){
 this.forecast=day.summary;
-this.time=day.time;
+this.time=new Date(day.time*1000).toDateString() ;
 
 }
 
