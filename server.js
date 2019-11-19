@@ -6,9 +6,10 @@ const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 const server = express();
 
-server.get ('/location',(req,res) =>{
-    res.status(200).send('Iam alive .')
-})
+server.get ('/location',locationHandler)
+function locationHandler (req,res) {
+    res.status(200).send('The App Works')
+};
 server.use ('*',(req,res)=>{
     res.status(404).send('huh??')
 })
